@@ -661,3 +661,7 @@ function write_object(arangoValue, arangoEdge){
     
     console.log("The file \"arango_edge.json\" was saved!");
 }
+
+function run(){
+    the(data, buffer);
+}
