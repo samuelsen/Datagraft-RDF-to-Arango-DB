@@ -600,10 +600,10 @@ function the(data, buffer){
     
     
     //Save as array with objects
-    //write_array(arango_value, arango_edge);
+    write_array(arango_value, arango_edge);
     
     //Save one object per line
-    write_object(arango_value, arango_edge);
+    //write_object(arango_value, arango_edge);
         
 }
 
