@@ -569,8 +569,7 @@ function the(data, buffer){
         return obj._key;
     };
     
-    var rootNode = data;
-    rootNode = {"_key":count.toString(), "label": "Start node", "value": "Start node"};
+    var rootNode = {"_key":count.toString(), "label": "Start node", "value": "Start node"};
     count ++;
     
     for(var i = 1; i < buffer.length; i++){
