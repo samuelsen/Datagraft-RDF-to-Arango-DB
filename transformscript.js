@@ -600,23 +600,26 @@ function the(data, buffer){
     
     
     //Save as array with objects
-    //write_array(arango_value, arango_edge);
+    write_array(arango_value, arango_edge);
     
     //Save one object per line
-    write_object(arango_value, arango_edge);
+    //write_object(arango_value, arango_edge);
         
 }
 
 function write_array(arangoValue, arangoEdge){
     var fs = require('fs');
-    fs.writeFile("arango_value2.json", JSON.stringify(arangoValue), function(err) {
+    
+    var stamp = new Date().toISOString().replace('T', ' ').replace('.', '')
+    
+    fs.writeFile(stamp + "_arango_value.json", JSON.stringify(arangoValue), function(err) {
         if(err) {
             return console.log(err);
         }
         console.log("The file was saved!");
     });
     
-    fs.writeFile("arango_edge2.json", JSON.stringify(arangoEdge), function(err) {
+    fs.writeFile(stamp + "_arango_edge.json", JSON.stringify(arangoEdge), function(err) {
         if(err) {
             return console.log(err);
         }
@@ -626,11 +629,12 @@ function write_array(arangoValue, arangoEdge){
 
 function write_object(arangoValue, arangoEdge){
     var fs = require('fs');
+    var stamp = new Date().toISOString().replace('T', ' ').replace('.', '')
     
     //write nodes
     console.log("writing node values to file...");
     for(var i = 0; i < arangoValue.length; i++){
-        fs.appendFileSync("arango_value.json", JSON.stringify(arangoValue[i]) + '\n', function(err) {
+        fs.appendFileSync(stamp + "_arango_value.json", JSON.stringify(arangoValue[i]) + '\n', function(err) {
             if(err) {
                 return console.log(err);
             }
@@ -638,12 +642,12 @@ function write_object(arangoValue, arangoEdge){
         }); 
     }
     
-    console.log("The file \"arango_value.json\" was saved!");
+    console.log("The file \""+stamp+"_arango_value.json\" was saved!");
     console.log("writing edge values to file...");
     
     //Write edges
     for(var i = 0; i < arangoEdge.length; i++){
-            fs.appendFileSync("arango_edge.json", JSON.stringify(arangoEdge[i])+'\n', function(err) {
+            fs.appendFileSync(stamp + "_arango_edge.json", JSON.stringify(arangoEdge[i])+'\n', function(err) {
                 if(err) {
                     return console.log(err);
                 }
@@ -651,7 +655,7 @@ function write_object(arangoValue, arangoEdge){
             }); 
     }
     
-    console.log("The file \"arango_edge.json\" was saved!");
+    console.log("The file \""+stamp+"_arango_edge.json\" was saved!");
 }
 
 function run(){
