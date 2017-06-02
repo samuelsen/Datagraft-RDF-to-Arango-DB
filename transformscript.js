@@ -350,18 +350,11 @@ var vocab = [];
 var headings = {};
 var buffer;
 
-/*Make vocabs for data set 1*/
+/*Make vocabs for dataset*/
 for(var i = 0; i < data_vocab.length; i++){
     if(i == 0){vocab = [];}
     var key = data_vocab[i].name;
     vocab[key] = data_vocab[i];
-}
-
-/*Make vocabs for data set 2*/
-for(var i = 0; i < data_vocab2.length; i++){
-    if(i == 0){vocab = [];}
-    var key = data_vocab2[i].name;
-    vocab[key] = data_vocab2[i];
 }
 
 /*Read function of the csv file*/
