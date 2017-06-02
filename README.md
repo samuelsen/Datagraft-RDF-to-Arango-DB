@@ -16,11 +16,15 @@ The json files has one object per line, therby noe filesize limitation when usin
 Run these lines of code to copy the files to the container, and import values into Arango.
 
 To copy the files:
+
 ```docker cp arango_value.json arangodb:/arangovalue.json```
+
 ```docker cp arango_edge.json arangodb:/arangoedge.json```
 
 To import and make new collection (exchange "test" / "test_edge" with the collection name)
+
 ```docker exec -i arangodb arangoimp --file arangovalue.json --collection test --create-collection true```
+
 ```docker exec -i arangodb arangoimp --file arangoedge.json --collection test_edge --create-collection true --create-collection-type edge --from-collection-prefix test --to-collection-prefix test```
 
 ## Future improvments
