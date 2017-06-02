@@ -629,7 +629,7 @@ function write_array(arangoValue, arangoEdge){
 
 function write_object(arangoValue, arangoEdge){
     var fs = require('fs');
-    
+    var stamp = new Date();
     //write nodes
     console.log("writing node values to file...");
     for(var i = 0; i < arangoValue.length; i++){
