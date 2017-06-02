@@ -609,14 +609,17 @@ function the(data, buffer){
 
 function write_array(arangoValue, arangoEdge){
     var fs = require('fs');
-    fs.writeFile("arango_value2.json", JSON.stringify(arangoValue), function(err) {
+    
+    var stamp = new Date();
+    
+    fs.writeFile(stamp + "arango_value.json", JSON.stringify(arangoValue), function(err) {
         if(err) {
             return console.log(err);
         }
         console.log("The file was saved!");
     });
     
-    fs.writeFile("arango_edge2.json", JSON.stringify(arangoEdge), function(err) {
+    fs.writeFile(stamp + "arango_edge.json", JSON.stringify(arangoEdge), function(err) {
         if(err) {
             return console.log(err);
         }
